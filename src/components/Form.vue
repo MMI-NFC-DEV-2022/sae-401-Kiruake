@@ -31,7 +31,7 @@ if (route.params.id) {
             <h2 class="text-2xl">
                 Résultat (Prévisualisation)
             </h2>
-            <AfficheMaison v-bind="maison" />
+            <AfficheMaison v-bind="maison as any" />
         </div>
         <div class="p-2">
             <FormKit @submit="upsertMaison" type="form" v-model="maison"

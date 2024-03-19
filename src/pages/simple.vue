@@ -16,7 +16,7 @@ import type { SchemaOffreMaison } from '@/types';
 
 <template>
     <div class="grid grid-cols-3 gap-4">
-        <AfficheMaison :nom-maison="maMaison.nomMaison" :prix="maMaison.prix" :adresse="maMaison.adresse" :nbr-chambres="maMaison.nbrChambres" :nbr-sdb="maMaison.nbrSDB" :favori="maMaison.favori" :image="maMaison.image" :surface="maMaison.surface"/>
+        <!-- <AfficheMaison :nom-maison="maMaison.nomMaison" :prix="maMaison.prix" :adresse="maMaison.adresse" :nbr-chambres="maMaison.nbrChambres" :nbr-sdb="maMaison.nbrSDB" :favori="maMaison.favori" :image="maMaison.image" :surface="maMaison.surface"/> -->
     </div>
-    <AfficheMaison nom-maison="Maison" :favori="true" image="\pexels-binyamin-mellish-106399.jpg"/>
+    <!-- <AfficheMaison nom-maison="Maison" :favori="true" image="\pexels-binyamin-mellish-106399.jpg"/> -->
 </template>
