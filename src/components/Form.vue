@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-import AfficheMaison from "@/components/AfficheMaison.vue";
+import AfficheFilm from "@/components/AfficheMaison.vue";
 import { FormKit } from "@formkit/vue";
 import { supabase } from "@/supabase";
 import { useRouter, useRoute } from "vue-router";
