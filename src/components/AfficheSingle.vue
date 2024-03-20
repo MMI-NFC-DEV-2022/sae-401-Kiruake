@@ -33,8 +33,15 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
         </li>
     
 
-
+        <div v-for="uneSaga in sagas">
+        <RouterLink :to="{name:'/sagas/[id]', params: {id:uneSaga.id}}">
          <p v-for="uneSaga in sagas">Saga : {{ uneSaga.libelle}}</p>
+        </RouterLink>
+    </div>
+
+
+
+
          <img  class="w-72" v-for="unePlateforme in plateformes" :src="unePlateforme.image ?? undefined"/>
          <p v-for="unePlateforme in plateformes">Platefromes : {{ unePlateforme.nom}}</p>
        <li>Date de sortie :{{ date_de_sortie}}</li>

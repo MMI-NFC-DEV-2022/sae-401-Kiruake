@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <div class="hidden md:block">
         <div class="flex space-x-4">
-          <RouterLink to="/" class="text-white hover:text-gray-300">Accueil</RouterLink>
-          <RouterLink to="/films" class="text-white hover:text-gray-300">Films</RouterLink>
-          <RouterLink to="/maisons" class="text-white hover:text-gray-300">Maisons</RouterLink>
+          <RouterLink to="/films" class="text-white hover:text-gray-300">Accueil</RouterLink>
           <RouterLink to="/maisons/edit" class="text-white hover:text-gray-300">Créer des maisons</RouterLink>
           <RouterLink to="/login-logout" class="text-white hover:text-gray-300">Connexion</RouterLink>
         </div>
@@ -40,8 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Mobile menu, toggle classNamees based on menu state. -->
     <div id="mobile-menu" class="md:hidden hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <RouterLink to="/" class="block text-white hover:text-gray-300">Home</RouterLink>
-        <RouterLink to="/maisons" class="block text-white hover:text-gray-300">Maisons</RouterLink>
+        <RouterLink to="/films" class="text-white hover:text-gray-300">Accueil</RouterLink>
         <RouterLink to="/maisons/edit" class="block text-white hover:text-gray-300">Créer des maisons</RouterLink>
         <RouterLink to="/login-logout" class="block text-white hover:text-gray-300">Connexion</RouterLink>
       </div>

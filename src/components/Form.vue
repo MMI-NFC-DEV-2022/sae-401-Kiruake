@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-import AfficheFilm from "@/components/AfficheMaison.vue";
+import AfficheFilm from "@/components/AfficheFilm.vue";
 import { FormKit } from "@formkit/vue";
 import { supabase } from "@/supabase";
 import { useRouter, useRoute } from "vue-router";
@@ -10,7 +10,7 @@ const maison = ref ({});
 const route = useRoute('/maisons/edit/[[id]]');
 
 async function upsertMaison(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
-    const { data, error } = await supabase.from("Maison").upsert(dataForm).select("id");
+    const { data, error } = await supabase.from("films").upsert(dataForm).select("id");
     if (error) node.setErrors([error.message])
     else {
         console.log("data :",data);
@@ -19,7 +19,7 @@ async function upsertMaison(dataForm: any, node: { setErrors: (arg0: any[]) => v
 }
 
 if (route.params.id) {
-    const { data, error } = await supabase.from("Maison").select("*").eq("id", route.params.id).single();
+    const { data, error } = await supabase.from("films").select("*").eq("id", route.params.id).single();
     if (error) console.error(error);
     else maison.value = data;
 }
