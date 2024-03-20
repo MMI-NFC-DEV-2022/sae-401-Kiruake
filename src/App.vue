@@ -1,20 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import Header from './components/Header.vue';
 </script>
 
 <template>
-  <header>
-    <h1>Test</h1>
 
-    <nav class="*:text-red-500 flex flex-col">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/simple">Simple</RouterLink>
-      <RouterLink to="/maisons">Maisons</RouterLink>
-      <RouterLink to="/maisons/edit">Créer des maisons</RouterLink>
-      <RouterLink to="/login-logout">Connexion</RouterLink>
-      <RouterLink to="/films">Films</RouterLink>
-    </nav>
-  </header>
+<Header/>
+
   <Suspense> 
     <RouterView />
   </Suspense>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
-import { supabase } from "../../supabase";
+// import { RouterLink } from "vue-router";
+//import { supabase } from "../../supabase";
 
 // const { data, error } = await supabase.from('QuartierCommune').select(`
 //   *
