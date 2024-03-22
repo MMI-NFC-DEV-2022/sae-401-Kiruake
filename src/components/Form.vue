@@ -3,25 +3,25 @@ import { ref } from "@vue/reactivity";
 import AfficheFilm from "@/components/AfficheFilm.vue";
 import { FormKit } from "@formkit/vue";
 import { supabase } from "@/supabase";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter, useRoute } from "vue-router/auto";
 
 const router = useRouter();
-const maison = ref ({});
-const route = useRoute('/maisons/edit/[[id]]');
+const films = ref ({});
+const route = useRoute('/films/edit/[[id]]');
 
-async function upsertMaison(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
+async function upsertFilm(dataForm: any, node: { setErrors: (arg0: any[]) => void; }) {
     const { data, error } = await supabase.from("films").upsert(dataForm).select("id");
     if (error) node.setErrors([error.message])
     else {
         console.log("data :",data);
-        router.push({name:"/maisons/edit/[[id]]", params:{id: data[0].id}});
+        router.push({name:"/films/edit/[[id]]", params:{id: data[0].id}});
     }
 }
 
 if (route.params.id) {
     const { data, error } = await supabase.from("films").select("*").eq("id", route.params.id).single();
     if (error) console.error(error);
-    else maison.value = data;
+    else films.value = data;
 }
 </script>
 
@@ -31,10 +31,10 @@ if (route.params.id) {
             <h2 class="text-2xl">
                 Résultat (Prévisualisation)
             </h2>
-            <AfficheMaison v-bind="maison as any" />
+            <AfficheFilm v-bind="films" />
         </div>
         <div class="p-2">
-            <FormKit @submit="upsertMaison" type="form" v-model="maison"
+            <FormKit @submit="upsertFilm" type="form" v-model="films"
             :config="{
                 classes: {
                     input: 'p-1 rounded border-gray-300 shadow-sm border',
@@ -42,14 +42,10 @@ if (route.params.id) {
                     outer: 'py-2',
                     },
                 }">
-                <FormKit name="nomProjet" label="nom de la maison" />
-                <FormKit name="adresse" label="adresse" />
-                <FormKit name="prix" type="number" label="prix" />
-                <FormKit name="favori" type="checkbox" label="mettre en valeur" />
-                <FormKit name="nbrChambres" type="number" label="nombre de chambres" />
-                <FormKit name="nbrSDB" type="number" label="nombre de salle de bain" />
-                <FormKit name="surface" label="surface" />
-                <FormKit name="image" label="image" />
+                <FormKit name="titre" label="Titre du film" />
+                <FormKit name="synopsis" label="Description du film" />
+                <FormKit name="date_de_sortie" type="number" label="Note /5" />
+                <FormKit name="image" label="Images du film" />
             </FormKit>
         </div>
     </div>

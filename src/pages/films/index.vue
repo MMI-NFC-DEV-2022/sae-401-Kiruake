@@ -23,7 +23,7 @@ const tableauFilm = data ?? [];
 </script>
 
 <template>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-3">
         <AfficheFilm v-for="film in tableauFilm" v-bind="film"/>
     </div>
 </template>

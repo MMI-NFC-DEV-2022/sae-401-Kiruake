@@ -220,27 +220,33 @@ export type Database = {
         Row: {
           affiche: string | null
           bande_annonce: string | null
+          banniere: string | null
           date_de_sortie: number | null
           duree: string | null
           id: number
+          note: number | null
           synopsis: string | null
           titre: string
         }
         Insert: {
           affiche?: string | null
           bande_annonce?: string | null
+          banniere?: string | null
           date_de_sortie?: number | null
           duree?: string | null
           id?: number
+          note?: number | null
           synopsis?: string | null
           titre: string
         }
         Update: {
           affiche?: string | null
           bande_annonce?: string | null
+          banniere?: string | null
           date_de_sortie?: number | null
           duree?: string | null
           id?: number
+          note?: number | null
           synopsis?: string | null
           titre?: string
         }
