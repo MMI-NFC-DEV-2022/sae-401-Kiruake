@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div id="mobile-menu" class="md:hidden hidden">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <RouterLink to="/films" class="text-black hover:text-gray-300">Accueil</RouterLink>
+        <RouterLink to="/films/edit" class="text-black hover:text-gray-300">Ajouter un film</RouterLink>
         <RouterLink to="/login-logout" class="block text-black hover:text-gray-300">Connexion</RouterLink>
       </div>
     </div>
