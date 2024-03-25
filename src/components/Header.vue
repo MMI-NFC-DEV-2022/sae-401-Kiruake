@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="hidden md:block">
         <div class="flex space-x-4">
           <RouterLink to="/films" class="text-black hover:text-gray-300">Accueil</RouterLink>
-          <RouterLink to="/films/edit" class="text-black hover:text-gray-300">Créer des films</RouterLink>
+          <RouterLink to="/films/edit" class="text-black hover:text-gray-300">Ajouter un film</RouterLink>
           <RouterLink to="/login-logout" class="text-black hover:text-gray-300">Connexion</RouterLink>
         </div>
       </div>

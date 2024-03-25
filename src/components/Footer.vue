@@ -24,7 +24,7 @@
                       <h2 class="mb-6 text-sm font-semibold text-black uppercase dark:text-black">En savoir plus sur nous</h2>
                       <ul class="text-black dark:text-black font-medium">
                           <li class="mb-4">
-                              <a href="https://github.com/MMI-NFC-DEV-2022/sae-401-enes-tavukcu" class="hover:underline ">Github</a>
+                              <a href=" " class="hover:underline ">Github</a>
                           </li>
                           <li>
                               <a href="https://discord.gg/yGEuBtWa" class="hover:underline">Discord MMI</a>

@@ -10,7 +10,7 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
 
 <template>
 
-<RouterLink :to="{name:'/films/[id]', params: {id}}">
+<RouterLink :to="id?{name:'/films/[id]', params: {id}}:{}">
 
    <div class="m-auto mt-20 bg-gray-300 w-[60%] rounded-sm flex flex-wrap shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out">
 

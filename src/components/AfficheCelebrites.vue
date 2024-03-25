@@ -28,11 +28,11 @@ defineProps <Database["public"]["Tables"]["celebrites"]["Row"] & {films:Tables<'
 
   <div class="lg:w-2/5 w-4/5 lg:ml-[360px] m-auto mt-10 lg:mt-0 ">
       <div class="text-gray-300 border-b pb-3 pt-3">
-          <p>date de naisance :{{date_de_naissance }}</p>
+          <p>date de naisance : {{date_de_naissance }}</p>
       </div>
 
       <div class="text-gray-300 border-b pb-3 pt-3">
-            <p>nombre de films:{{nb_films }}</p>
+            <p>nombre de films : {{nb_films }}</p>
       </div>
   </div>
 
@@ -45,7 +45,7 @@ defineProps <Database["public"]["Tables"]["celebrites"]["Row"] & {films:Tables<'
       <div class="lg:flex flex-col lg:flex-row lg:ml-20 m-auto gap-20">
         <div v-for="unFilm in films" :key="unFilm.id" class="flex justify-center lg:justify-start m-auto lg:m-0 mb-20 ">
           <RouterLink :to="{ name: '/films/[id]', params: { id: unFilm.id } }">
-            <img class="w-48 items-center" :src="unFilm.affiche ?? undefined" />
+            <img class="w-48 m-auto items-center" :src="unFilm.affiche ?? undefined" />
             <p class="text-gray-300 mt-5 ">{{ unFilm.titre }}</p>
           </RouterLink>
         </div>

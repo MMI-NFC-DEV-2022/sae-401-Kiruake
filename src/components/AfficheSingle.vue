@@ -53,7 +53,7 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
             <div class="text-gray-300 border-b pb-3 pt-3">
                 <div v-for="uneSaga in sagas">
                 <RouterLink :to="{name:'/sagas/[id]', params: {id:uneSaga.id}}">
-                    <p class="underline text-yellow-500" v-for="uneSaga in sagas">Saga : {{ uneSaga.libelle}}</p>
+                    <p class="underline text-yellow-500" v-for="uneSaga in sagas">Saga : {{ uneSaga.libelle}} </p>
                 </RouterLink>
                 </div>
             </div>
@@ -108,11 +108,13 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
 
    
        
-        <ul class="ml-20 flex gap-20 justify-start flex-wrap">
+        <ul class="ml-8 flex gap-20 justify-start flex-wrap">
             <div v-for="unSupport in supports" :key="unSupport.id">
-           <li>
+        <li>
+           
                 <img class="w-40 h-40 object-cover rounded-full" :src="unSupport.image ?? undefined" alt="Photo de {{ unSupport.nom }}" />
-            </li>
+        
+        </li>
 
            <li>
                 <p class="text-gray-300 text-xl text-center pt-4">{{ unSupport.type }}</p>
@@ -121,9 +123,16 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
         </ul>
 
     
-    <ul  class="flex ml-32 justify-start gap-48 flex-wrap">
+    <ul  class="flex ml-20 justify-start gap-44 flex-wrap">
     
-        <li v-for="unFilmSupport in film_support"><p class="text-gray-300 text-xl text-center pt-4">{{ unFilmSupport.prix }}€</p></li>
+        <div v-for="unFilmSupport in film_support">
+
+        <li ><p class="text-gray-300 text-xl text-center pt-4">{{ unFilmSupport.prix }}€</p></li>
+        <a :href="unFilmSupport.lien ?? ''" target="_blank">
+        <li><button class="bg-yellow-500 p-1 mt-2 rounded ">Acheter</button></li>
+        </a>
+    </div>
+        
     
     </ul>
 

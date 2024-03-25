@@ -5,7 +5,7 @@ import { defineProps } from 'vue';
 import type { Database, Tables } from '@/supabase-types';
 import { supabase } from '@/supabase';
 const route = useRoute('/sagas/[id]');
-defineProps <Database["public"]["Tables"]["sagas"]["Row"] & {films:Tables<'films'>[]} & {genres:Tables<'genres'>[]} & {sagas:Tables<'sagas'>[]} & {plateformes:Tables<'plateformes'>[]} >()
+defineProps <Database["public"]["Tables"]["sagas"]["Row"] & {films:Tables<'films'>[]} & {genres:Tables<'genres'>[]} & {plateformes:Tables<'plateformes'>[]} >()
 
  
 </script>
