@@ -13,21 +13,14 @@ defineProps <Database["public"]["Tables"]["sagas"]["Row"] & {films:Tables<'films
 
 <template>
  
-   
-
-       <h1 class="text-3xl text-gray-300 mt-20 ml-10">Voici toute la saga {{libelle }}
-            <span class="bg-yellow-500 h-1 w-[60%] ml-8 mb-2 inline-block"></span>
-        </h1>
      
-
-    
-
-        <div  v-for="unFilm in films">
+<div class="flex flex-col lg:flex-row ">
+        <div v-for="unFilm in films">
             <RouterLink :to="{name:'/films/[id]', params: { id: unFilm.id }}">
+    
+<div class="m-auto mt-20 bg-gray-300 w-[60%] rounded-sm flex flex-wrap shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out">
 
-    <div class="m-auto mt-20 bg-gray-300 w-[60%] rounded-sm flex flex-wrap shadow-lg hover:shadow-2xl hover:scale-105 transition-transform transition-shadow duration-300 ease-in-out">
-
-     <img :src="unFilm.affiche ?? undefined" class="h-auto rounded-t-sm"/>
+     <img :src="unFilm.affiche ?? undefined" class="max-h-96 w-[300px] lg:w-[380px] rounded-t-sm"/>
 
 
 <div class="flex flex-col">
@@ -52,13 +45,16 @@ defineProps <Database["public"]["Tables"]["sagas"]["Row"] & {films:Tables<'films
 
      </div>
 
-   </div>
-
- </div>
-
+    </div>
+    
+</div>
 
 </RouterLink>
 </div>
+
+</div>
+
+ 
 
 
 

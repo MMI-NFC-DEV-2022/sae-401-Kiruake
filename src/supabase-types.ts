@@ -11,6 +11,7 @@ export type Database = {
     Tables: {
       celebrites: {
         Row: {
+          biographie: string | null
           date_de_naissance: string | null
           id: number
           image: string | null
@@ -19,6 +20,7 @@ export type Database = {
           prenom: string | null
         }
         Insert: {
+          biographie?: string | null
           date_de_naissance?: string | null
           id?: number
           image?: string | null
@@ -27,6 +29,7 @@ export type Database = {
           prenom?: string | null
         }
         Update: {
+          biographie?: string | null
           date_de_naissance?: string | null
           id?: number
           image?: string | null
@@ -159,14 +162,17 @@ export type Database = {
       film_support: {
         Row: {
           film: number
+          prix: number | null
           support: number
         }
         Insert: {
           film?: number
+          prix?: number | null
           support: number
         }
         Update: {
           film?: number
+          prix?: number | null
           support?: number
         }
         Relationships: [

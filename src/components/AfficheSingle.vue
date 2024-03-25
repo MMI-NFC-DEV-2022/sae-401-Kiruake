@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router/auto';
 import { defineProps } from 'vue';
 import type { Database, Tables } from '@/supabase-types';
 import { supabase } from '@/supabase';
-defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'celebrites'>[]} & {genres:Tables<'genres'>[]} & {sagas:Tables<'sagas'>[]} & {plateformes:Tables<'plateformes'>[]} >()
+defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'celebrites'>[]} & {genres:Tables<'genres'>[]} & {sagas:Tables<'sagas'>[]} & {plateformes:Tables<'plateformes'>[]} & {supports:Tables<'supports'>[]} >()
 
  
 </script>
@@ -30,11 +30,11 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
     </div>
 
 
-    <section class="flex">
+    <section class="flex-col flex  lg:flex-row">
 
-        <div class="text-gray-300 ml-10 mt-10 w-3/6 tracking-wide">
+        <div class="text-gray-300 lg:ml-10 mt-10 lg:w-3/6 w-6/6 ml-5 mr-5 lg:mr-0 lg:ml-10 tracking-wide">
 
-            <h2 class="text-3xl uppercase ">{{ titre }} ({{ date_de_sortie }})</h2>
+            <h2 class="lg:text-3xl text-2xl text-center lg:text-start uppercase ">{{ titre }} ({{ date_de_sortie }})</h2>
             <p class="mt-10 text-justify">{{ synopsis }}</p>
 
         <div>
@@ -62,7 +62,7 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
 
         </div>
 
-        <div class="w-3/6 ">
+        <div class="lg:w-3/6 w-6/6 ">
         <h2 class="text-gray-300 flex justify-center text-2xl mt-20 mb-10 tracking-wide">Où streamer ce film ?</h2>  
         
         <div class="flex flex-col gap-8">
@@ -79,13 +79,13 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
     </section>
 
          
-<h1 class="text-3xl text-gray-300 ml-10 mt-20 mb-16 uppercase">
+<h1 class="lg:text-3xl text-xl text-center lg:text-start text-gray-300 lg:ml-10 ml-0 mt-20 mb-16 uppercase">
     Casting du film
-    <span class="bg-yellow-500 h-1 w-[70%] ml-8 mb-2 inline-block"></span>
+    <span class="bg-yellow-500 h-1 lg:w-[70%] w-[50%] m-auto mt-4 lg:mt-0 lg:ml-8 mb-2 lg:inline-block block"></span>
 </h1>
 
        
-    <div class="flex flex-row flex-wrap gap-20 ml-10 mt-10">
+    <div class="flex lg:flex-row flex-col flex-wrap lg:gap-20 gap-10 lg:ml-10 mt-10">
     <div v-for="uneCelebrite in celebrites" :key="uneCelebrite.id" class="flex flex-col items-center">
         <RouterLink :to="{ name: '/celebrites/[id]', params: { id: uneCelebrite.id } }">
             <img class="w-40 h-40 object-cover rounded-full" :src="uneCelebrite.image ?? undefined" alt="Photo de {{ uneCelebrite.nom }}" />
@@ -94,8 +94,31 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
     </div>
 </div>
 
+    
+<h1 class="lg:text-3xl text-center lg:text-start text-xl text-gray-300 lg:ml-10 ml-0 mt-20 mb-16 uppercase">
+    Support disponible pour {{ titre }}
+    <span class="bg-yellow-500 h-1 lg:w-[25%] w-[50%] lg:ml-8 mb-2 m-auto mt-4 lg:mt-0 lg:inline-block block"></span>
+</h1>
+
+<div class="flex lg:flex-row flex-col flex-wrap lg:gap-20 gap-10 lg:ml-10 mt-10">
+    <div v-for="unSupport in supports" :key="unSupport.id" class="flex flex-col items-center">
+        <RouterLink :to="{ name: '/supports/[id]', params: { id: unSupport.id } }">
+            <img class="w-40 h-40 object-cover rounded-full" :src="unSupport.image ?? undefined" alt="Photo de {{ unSupport.nom }}" />
+            <p class="text-gray-300 text-xl text-center pt-4">{{ unSupport.type }}</p>
+        </RouterLink>
+    </div>
+</div>
+
         
     
     </template>
+
+    <style>
+
+
+
+
+
+</style>
 
 

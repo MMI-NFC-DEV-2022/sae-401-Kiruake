@@ -23,7 +23,13 @@ const tableauFilm = data ?? [];
 </script>
 
 <template>
-    <div class="grid grid-cols-3">
+
+<h1 class="lg:text-3xl text-xl text-gray-300 lg:ml-10 text-center lg:text-start mt-20 mb-4 uppercase">
+    Notre catalogue de films
+    <span class="bg-yellow-500 h-1 w-[50%] lg:ml-8 m-auto mt-4 lg:mt-0 mb-2 lg:inline-block block"></span>
+</h1>
+
+    <div class="grid lg:grid-cols-3 grid-cols-1">
         <AfficheFilm v-for="film in tableauFilm" v-bind="film"/>
     </div>
 </template>

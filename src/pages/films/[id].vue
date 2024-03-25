@@ -3,7 +3,7 @@ import { useRoute } from 'vue-router/auto';
 import { defineProps } from 'vue';
 import type { Database, Tables } from '@/supabase-types';
 import { supabase } from '@/supabase';
-defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'celebrites'>} & {genres:Tables<'genres'>} & {sagas:Tables<'sagas'>} & {plateformes:Tables<'plateformes'>}   >()
+defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'celebrites'>} & {genres:Tables<'genres'>} & {sagas:Tables<'sagas'>} & {plateformes:Tables<'plateformes'>} & {supports:Tables<'supports'>}   >()
 import AfficheSingle from '@/components/AfficheSingle.vue';
 const route = useRoute('/films/[id]');
 
@@ -14,7 +14,8 @@ let { data: film, error } = await supabase
       celebrites(*),
       genres(*),
       sagas(*),
-      plateformes(*)
+      plateformes(*),
+      supports(*)
     `)
     .eq('id', route.params.id)
     .single();
