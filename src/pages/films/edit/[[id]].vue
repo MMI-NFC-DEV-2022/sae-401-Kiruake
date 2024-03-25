@@ -35,17 +35,17 @@ console.log("films.value",films.value);
 
     <div>
         <div class="p-2">
-            <h2 class="text-2xl">
+            <h2 class="text-3xl text-center text-gray-200 mt-20">
                 Résultat (Prévisualisation)
             </h2>
-            <AfficheFilm v-bind="films" />
+            <AfficheFilm  v-bind="films" />
         </div>
-        <div class="p-2">
+        <div class="p-2 m-auto flex justify-center">
             <FormKit @submit="upsertFilm" type="form" v-model="films"
             :config="{
                 classes: {
-                    input: 'p-1 rounded border-gray-300 shadow-sm border',
-                    label: 'text-gray-600 italic',
+                    input: 'p-1 rounded border-gray-300 text-gray-200 shadow-sm border',
+                    label: 'text-gray-200 italic',
                     outer: 'py-2',
                     },
                 }">
@@ -55,7 +55,7 @@ console.log("films.value",films.value);
                 <FormKit name="affiche" label="Images du film" />
                 <FormKit name="date_de_sortie" type="number" label="Date de sortie" />
                 <FormKit name="duree" type="time" label="Durée du film" />
-                <FormKit name="banniere" label="Bannière" :options="[{value:1,label:'Action'},{value:2,label:'Comédie'},{value:3,label:'Drame'},{value:4,label:'Fantastique'},{value:5,label:'Horreur'},{value:6,label:'Science-fiction'},{value:7,label:'Thriller'}]" />
+                <FormKit name="banniere" label="Bannière" />
             </FormKit>
         </div>
     </div>
