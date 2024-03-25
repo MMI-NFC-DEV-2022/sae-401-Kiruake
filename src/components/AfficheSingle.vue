@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router/auto';
 import { defineProps } from 'vue';
 import type { Database, Tables } from '@/supabase-types';
 import { supabase } from '@/supabase';
-defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'celebrites'>[]} & {genres:Tables<'genres'>[]} & {sagas:Tables<'sagas'>[]} & {plateformes:Tables<'plateformes'>[]} & {supports:Tables<'supports'>[]} >()
+defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'celebrites'>[]} & {genres:Tables<'genres'>[]} & {sagas:Tables<'sagas'>[]} & {plateformes:Tables<'plateformes'>[]} & {supports:Tables<'supports'>[]} & {film_support:Tables<'film_support'>[]} >()
 
  
 </script>
@@ -40,12 +40,12 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
         <div>
 
             <div class="text-gray-300 border-b pb-3 mt-10 ">
-                <h2>{{ duree }}</h2>
+                <h2>Durée : {{ duree }}</h2>
             </div>
 
             <div class="text-gray-300 border-b pb-3 pt-3 flex gap-2">
                 <h2 v-for="(unGenre, index) in genres" :key="unGenre.id">
-                    {{ unGenre.libelle }}
+                    Genre : {{ unGenre.libelle }}
                     <span v-if="index !== genres.length - 1">,</span>
                 </h2>
             </div>
@@ -66,9 +66,13 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
         <h2 class="text-gray-300 flex justify-center text-2xl mt-20 mb-10 tracking-wide">Où streamer ce film ?</h2>  
         
         <div class="flex flex-col gap-8">
-            <div v-for="unePlateforme in plateformes" :key="unePlateforme.id" class="flex m-auto w-[230px] items-center gap-10 border border pl-5 py-2 rounded w-1/6">
+            <div v-for="unePlateforme in plateformes" :key="unePlateforme.id" >
+                <RouterLink :to="{name:'/plateformes/[id]', params: {id:unePlateforme.id}}">
+                <div class="flex m-auto w-[230px] items-center gap-10 border border pl-5 py-2 rounded w-1/6">
                 <img class="w-10 rounded-full" :src="unePlateforme.image ?? undefined" />
                 <p class="text-xl text-gray-300">{{ unePlateforme.nom }}</p>
+                    </div>
+                </RouterLink>
             </div>
         </div>
 
@@ -96,18 +100,37 @@ defineProps <Database["public"]["Tables"]["films"]["Row"] & {celebrites:Tables<'
 
     
 <h1 class="lg:text-3xl text-center lg:text-start text-xl text-gray-300 lg:ml-10 ml-0 mt-20 mb-16 uppercase">
-    Support disponible pour {{ titre }}
+    Supports disponible pour {{ titre }}
     <span class="bg-yellow-500 h-1 lg:w-[25%] w-[50%] lg:ml-8 mb-2 m-auto mt-4 lg:mt-0 lg:inline-block block"></span>
 </h1>
 
-<div class="flex lg:flex-row flex-col flex-wrap lg:gap-20 gap-10 lg:ml-10 mt-10">
-    <div v-for="unSupport in supports" :key="unSupport.id" class="flex flex-col items-center">
-        <RouterLink :to="{ name: '/supports/[id]', params: { id: unSupport.id } }">
-            <img class="w-40 h-40 object-cover rounded-full" :src="unSupport.image ?? undefined" alt="Photo de {{ unSupport.nom }}" />
-            <p class="text-gray-300 text-xl text-center pt-4">{{ unSupport.type }}</p>
-        </RouterLink>
-    </div>
-</div>
+
+
+   
+       
+        <ul class="ml-20 flex gap-20 justify-start flex-wrap">
+            <div v-for="unSupport in supports" :key="unSupport.id">
+           <li>
+                <img class="w-40 h-40 object-cover rounded-full" :src="unSupport.image ?? undefined" alt="Photo de {{ unSupport.nom }}" />
+            </li>
+
+           <li>
+                <p class="text-gray-300 text-xl text-center pt-4">{{ unSupport.type }}</p>
+            </li>
+        </div>
+        </ul>
+
+    
+    <ul  class="flex ml-32 justify-start gap-48 flex-wrap">
+    
+        <li v-for="unFilmSupport in film_support"><p class="text-gray-300 text-xl text-center pt-4">{{ unFilmSupport.prix }}€</p></li>
+    
+    </ul>
+
+
+
+
+
 
         
     

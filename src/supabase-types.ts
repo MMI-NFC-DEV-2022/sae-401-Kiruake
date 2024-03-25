@@ -275,16 +275,19 @@ export type Database = {
       }
       plateformes: {
         Row: {
+          description: string | null
           id: number
           image: string | null
           nom: string
         }
         Insert: {
+          description?: string | null
           id?: number
           image?: string | null
           nom: string
         }
         Update: {
+          description?: string | null
           id?: number
           image?: string | null
           nom?: string
